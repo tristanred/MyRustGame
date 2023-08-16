@@ -1,0 +1,8 @@
+Game is a 2D platformer where the player must go up, a bit like jump king but very casual.
+
+The direction of the game is going to be mostly vertical with maybe a bit of horizontal flexibility to accomodate screen resolution.
+
+The controls will be WASD for moving and space for jumping. W and S will be used to climb/descend
+climbable surfaces.
+
+Gameplay should last for about 5 to 10 minutes.
