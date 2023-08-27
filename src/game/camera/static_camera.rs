@@ -47,16 +47,16 @@ fn setup_system(mut app_state: ResMut<State<AppState>>, windows: Res<Windows>, q
 */
 
 pub fn print_camera_dims(q: Query<&Camera>) {
-    let camera = q.single();
+    // if let Ok(camera) = q.get_single() {
+    //     // the size of the area being rendered to
+    //     let view_dimensions = camera.logical_viewport_size().unwrap();
+    //     debug!("VP Size {:?}", view_dimensions);
 
-    // the size of the area being rendered to
-    let view_dimensions = camera.logical_viewport_size().unwrap();
-    debug!("VP Size {:?}", view_dimensions);
+    //     // the top-left and bottom-right coordinates
+    //     let rec = camera.logical_viewport_rect().unwrap();
 
-    // the top-left and bottom-right coordinates
-    let rec = camera.logical_viewport_rect().unwrap();
-
-    debug!("VP Rect {:?}", rec);
+    //     debug!("VP Rect {:?}", rec);
+    // }
 }
 
 pub fn keyboard_input_system(
