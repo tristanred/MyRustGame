@@ -21,6 +21,5 @@ pub fn setup(mut commands: Commands, cam: Query<&Camera>, _: Res<AssetServer>) {
         GameFloor,
         Collider::cuboid(width / 2.0, height / 2.0),
         RigidBody::Fixed,
-
     ));
 }

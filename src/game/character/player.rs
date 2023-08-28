@@ -38,3 +38,18 @@ pub fn player_handle_jump(
         }
     }
 }
+
+pub fn player_handle_movement(
+    keyboard_input: Res<Input<KeyCode>>,
+    mut rigid_body: Query<&mut Velocity, With<GamePlayer>>,
+) {
+    if keyboard_input.pressed(KeyCode::A) {
+        for mut rb in rigid_body.iter_mut() {
+            rb.linvel.x = -100.0;
+        }
+    } else if keyboard_input.pressed(KeyCode::D) {
+        for mut rb in rigid_body.iter_mut() {
+            rb.linvel.x = 100.0;
+        }
+    }
+}

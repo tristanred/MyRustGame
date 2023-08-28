@@ -27,6 +27,4 @@ pub fn setup_dimensions(mut commands: Commands, mut q: Query<&mut Window, With<P
         x.resolution.width()
     );
     info!("Scale factor = {}", x.scale_factor());
-    // x.resolution
-    //     .set_physical_resolution(720, 1280);
 }
