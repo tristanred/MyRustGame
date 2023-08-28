@@ -1,11 +1,12 @@
 use bevy::prelude::*;
 
+use crate::game::character::player::GamePlayer;
+
 #[derive(Component)]
-pub struct StaticCamera;
+pub struct PlayerFollowCamera;
 
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-    commands.spawn((Camera2dBundle::default(), StaticCamera));
-
+    commands.spawn((Camera2dBundle::default(), PlayerFollowCamera));
 }
 
 pub fn print_camera_dims(q: Query<&Camera>) {
@@ -21,23 +22,13 @@ pub fn print_camera_dims(q: Query<&Camera>) {
     // }
 }
 
-pub fn keyboard_input_system(
-    keyboard_input: Res<Input<KeyCode>>,
-    mut query: Query<(&Camera, &mut StaticCamera, &mut Transform)>,
+pub fn execute_follow_camera(
+    mut q: Query<&mut Transform, (With<PlayerFollowCamera>, Without<GamePlayer>)>,
+    player: Query<&Transform, With<GamePlayer>>,
 ) {
-    for c in &mut query {
-        let (_, _, mut transform) = c;
-        if keyboard_input.pressed(KeyCode::W) {
-            transform.translation.y += 1.0;
-        }
-        if keyboard_input.pressed(KeyCode::S) {
-            transform.translation.y -= 1.0;
-        }
-        if keyboard_input.pressed(KeyCode::A) {
-            transform.translation.x -= 1.0;
-        }
-        if keyboard_input.pressed(KeyCode::D) {
-            transform.translation.x += 1.0;
-        }
+    if let (Ok(mut camera), Ok(player)) = (q.get_single_mut(), player.get_single()) {
+        camera.translation.x = player.translation.x;
+        camera.translation.y = player.translation.y;
+        camera.translation.z = 1.0; // Must stay at 1
     }
 }

@@ -19,5 +19,6 @@ fn main() {
         //.add_systems(Update, game::camera::static_camera::keyboard_input_system)
         .add_systems(Update, game::character::player::player_handle_jump)
         .add_systems(Update, game::character::player::player_handle_movement)
+        .add_systems(Update, game::camera::static_camera::execute_follow_camera)
         .run();
 }
