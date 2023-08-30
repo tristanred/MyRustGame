@@ -14,7 +14,6 @@ fn main() {
         .add_systems(Startup, game::background::walls::setup_walls)
         .add_systems(Startup, game::character::player::setup_player)
         .add_systems(PostStartup, game::layout::game_layout::setup_dimensions)
-        .add_systems(PostStartup, game::camera::static_camera::print_camera_dims)
         // Update systems
         //.add_systems(Update, game::camera::static_camera::keyboard_input_system)
         .add_systems(Update, game::character::player::player_handle_jump)

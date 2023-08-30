@@ -12,7 +12,7 @@ pub fn setup_player(
     // Sprite is 32x32
     let sprite_bundle = SpriteBundle {
         texture: asset_server.load("character/Pink_Monster.png"),
-        transform: Transform::from_xyz(20.0, 200.0, 0.0),
+        transform: Transform::from_xyz(0.0, 200.0, 0.0),
         ..Default::default()
     };
 

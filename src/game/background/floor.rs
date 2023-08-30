@@ -15,7 +15,7 @@ pub fn setup(mut commands: Commands, cam: Query<&Camera>, _: Res<AssetServer>) {
                 custom_size: Some(Vec2::new(width, height)),
                 ..default()
             },
-            transform: Transform::from_translation(Vec3::new(0.0, -50.0, 0.0)),
+            transform: Transform::from_translation(Vec3::new(0.0, 0.0, 0.0)),
             ..default()
         },
         GameFloor,
