@@ -9,7 +9,7 @@ fn main() {
         .add_plugins(RapierPhysicsPlugin::<NoUserData>::pixels_per_meter(100.0))
         .add_plugins(RapierDebugRenderPlugin::default())
         // Startup/Setup Systems
-        .add_systems(Startup, game::camera::static_camera::setup)
+        .add_systems(Startup, game::camera::follow_camera::setup)
         .add_systems(Startup, game::background::floor::setup)
         .add_systems(Startup, game::background::walls::setup_walls)
         .add_systems(Startup, game::character::player::setup_player)
@@ -18,6 +18,6 @@ fn main() {
         //.add_systems(Update, game::camera::static_camera::keyboard_input_system)
         .add_systems(Update, game::character::player::player_handle_jump)
         .add_systems(Update, game::character::player::player_handle_movement)
-        .add_systems(Update, game::camera::static_camera::execute_follow_camera)
+        .add_systems(Update, game::camera::follow_camera::execute_follow_camera)
         .run();
 }

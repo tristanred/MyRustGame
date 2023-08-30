@@ -1,1 +1,1 @@
-pub mod static_camera;
+pub mod follow_camera;
